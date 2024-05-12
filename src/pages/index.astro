@@ -1,18 +1,78 @@
 ---
+import Recent from "../components/Recent_post.jsx";
+import Subscribe from "../components/Subscribe.jsx";
+import Menu from "../components/Menu.jsx";
+import Img from "../components/img.jsx";
+import Footer from "../components/Footer.jsx";
+import { getCollection } from "astro:content";
 
+const posts = (
+  await getCollection("posts", ({ data }) => {
+    return data.isDraft !== true;
+  })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-	    <a href = "/"> Home </a>
-    <a href = "/about"> About </a>
-		<h1>Astro site</h1>
-	</body>
-</html>
+<body class="px-20">
+  <div class="grid grid-cols-2">
+    <div>
+      <Img />
+      <!-- <span class="text-4xl">despa</span>
+      <br />
+      <span class="font-extrabold text-9xl">blog</span> -->
+    </div>
+    <div>
+      <Menu />
+    </div>
+  </div>
+  <!-- <ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+        <p>by XYZ,
+          published {post.data.pubDate.toDateString()}, 
+          tags: <strong>{post.data.tags.join(", ")}</strong>
+        </p>
+        <p>{post.data.description}</p>
+      </li>
+    ))
+  }
+
+
+</ul> -->
+  <Recent>
+    <div class="grid grid-cols-4 gap-4">
+      {
+        posts.slice(0, 4).map((post) => (
+          <div class="text-justify px-4 py-3 border rounded-2xl shadow-md flex justify-center items-center ">
+            <div>
+              <p>
+                <img
+                  src={post.data.src}
+                  alt={post.data.alt}
+                  class="rounded-xl"
+                />
+              </p>
+              <a class="font-bold" href={`/posts/${post.slug}/`}>
+                {post.data.title}
+              </a>
+              <p>{post.data.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Recent>
+  <Subscribe />
+  <Footer />
+
+  <!-- 
+<Recent>
+</Recent>
+
+<Subscribe client:load />
+
+<Sch />
+<Footer /> -->
+</body>

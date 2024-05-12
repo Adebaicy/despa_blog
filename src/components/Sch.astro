@@ -1,0 +1,18 @@
+---
+const allSch = await Astro.glob("../pages/posts/*.md");
+//const { page } = Astro.props;
+---
+
+<p>
+    {
+      allSch.slice(0, 4).map((post) => (
+        <p>
+          <p>
+            <img src={post.frontmatter.src} alt={post.frontmatter.alt} />
+          </p>
+          <a href={post.url}>{post.frontmatter.title}</a>
+          <p>{post.frontmatter.description}</p>
+        </p>
+      ))
+    }
+  </p>

@@ -10,6 +10,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.2.1"
+    "@astrojs/preact": "^3.1.0",
+    "@astrojs/react": "^3.0.9",
+    "@astrojs/rss": "^4.0.3",
+    "@astrojs/tailwind": "^5.1.0",
+    "@philnash/astro-pagination": "^0.4.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "astro": "^4.2.6",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^9.5.9",
+    "preact": "^10.19.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "tailwindcss": "^3.4.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.13.0"
   }
 }
