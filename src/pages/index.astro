@@ -13,9 +13,17 @@ const posts = (
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<body class="px-20">
-  <div class="grid grid-cols-2">
+<body class="px-5 md:px-20">
+  <div class="grid md:grid-cols-2">
     <div>
+      <div class="text-left grid justify-items-end md:hidden">
+        <p class="w-32 pt-8">04 Academic</p>
+        <p class="pt-8 w-32">05 Entertainment</p>
+        <p class="pt-8 w-32">06 Scholarship</p>
+        <p class="pt-8 w-32">04 Academic</p>
+        <p class="pt-8 w-32">05 Entertainment</p>
+        <p class="pt-8 w-32">06 Scholarship</p>
+      </div>
       <Img />
       <!-- <span class="text-4xl">despa</span>
       <br />
@@ -42,16 +50,16 @@ const posts = (
 
 </ul> -->
   <Recent>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       {
         posts.slice(0, 4).map((post) => (
-          <div class="text-justify px-4 py-3 border rounded-2xl shadow-md flex justify-center items-center ">
+          <div class="text-justify px-4 py-3 border rounded-2xl shadow-md flex justify-center items-center">
             <div>
               <p>
                 <img
                   src={post.data.src}
                   alt={post.data.alt}
-                  class="rounded-xl"
+                  class="w-screen rounded-xl"
                 />
               </p>
               <a class="font-bold" href={`/posts/${post.slug}/`}>
