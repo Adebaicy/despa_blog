@@ -1,0 +1,71 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/about\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/education\\/edu1\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts-1\\/post-1\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts-1\\/post-2\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts-1\\/post-3\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts-1\\/post-4\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/rss\\.xml\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/scholarship(?:\\/(.*?))?\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/scholarship copy(?:\\/(.*?))?\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/tags\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/tags\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		}
+	]
+}
