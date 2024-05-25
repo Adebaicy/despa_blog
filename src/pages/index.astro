@@ -49,7 +49,29 @@ const posts = (
 
 
 </ul> -->
-
+  <!-- <Recent>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {
+        posts.slice(0, 4).map((post) => (
+          <div class="text-justify px-4 py-3 border rounded-2xl shadow-md flex justify-center items-center">
+            <div>
+              <p>
+                <img
+                  src={post.data.src}
+                  alt={post.data.alt}
+                  class="w-screen rounded-xl"
+                />
+              </p>
+              <a class="font-bold" href={`/posts/${post.slug}/`}>
+                {post.data.title}
+              </a>
+              <p>{post.data.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Recent> -->
   <Subscribe />
   <Footer />
 
